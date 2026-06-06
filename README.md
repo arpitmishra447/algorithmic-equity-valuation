@@ -1,2 +1,38 @@
-# algorithmic-equity-valuation
-An automated, institutional-grade Discounted Cash Flow (DCF) valuation pipeline for the Nifty 50.
+# 📈 Algorithmic Equity Valuation Engine (Nifty 50)
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B.svg)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57.svg)
+![Finance](https://img.shields.io/badge/Domain-Quantitative_Finance-008000.svg)
+
+An institutional-grade, automated Discounted Cash Flow (DCF) valuation pipeline for the Indian equity market (Nifty 50). This project transitions traditional, manual spreadsheet financial modeling into a highly scalable, full-stack Python data architecture.
+
+## 🚀 Overview
+
+This repository contains the codebase developed for my MBA Finance Dissertation at Babasaheb Bhimrao Ambedkar University (BBAU). 
+
+The pipeline autonomously ingests financial data, engineers complex accounting metrics (like the 3-step DuPont Analysis), and outputs actionable investment signals based on intrinsic value. To combat "algorithmic over-optimism"—a common flaw where automated models project peak profitability indefinitely—this engine is fortified with strict institutional-grade mathematical safeguards.
+
+## 🧠 Core Architecture & Institutional Safeguards
+
+* **Automated Data Ingestion:** Dynamically fetches trailing twelve-month (TTM) fundamental data for the Nifty 50 constituents via the `yfinance` API.
+* **Live Macro-Economic Scraper:** Uses `BeautifulSoup` and Regex to autonomously scrape the live 10-year Government Security (GS 2035) yield directly from the Reserve Bank of India (RBI) website. This anchors the Capital Asset Pricing Model (CAPM).
+* **Defensive Financial Engineering:** * **WACC Floor:** Enforces an 11.0% minimum Weighted Average Cost of Capital to adequately price in emerging market risks and currency fluctuations.
+  * **Growth Decay:** Calculates the Sustainable Growth Rate (SGR), caps it at 10.0%, and applies a mean-reverting decay function over the 5-year explicit projection period.
+  * **Cash Flow Smoothing:** Implements a 5% revenue proxy for maintenance Free Cash Flow to Firm (FCFF) to prevent model failure during heavy capital expenditure cycles.
+* **Relational Database Storage:** Raw data and programmatic calculations are persisted in a local `SQLite` database (`nifty_finance.db`), entirely eliminating reliance on volatile temporary RAM.
+* **Interactive Frontend:** A `Streamlit` dashboard allows users to filter signals, view diagnostic matrices, and visualize Market Price vs. Intrinsic Value gaps in real-time.
+
+## 🛠️ Technology Stack
+
+* **Backend & Mathematics:** `Pandas`, `NumPy`, `Regex`, `Math`
+* **Data Extraction:** `yfinance`, `Requests`, `BeautifulSoup4`
+* **Database Management:** `SQLite3`
+* **Frontend User Interface:** `Streamlit`
+
+## ⚙️ Installation & Usage
+
+**1. Clone the repository:**
+```bash
+git clone [https://github.com/yourusername/algorithmic-equity-valuation.git](https://github.com/yourusername/algorithmic-equity-valuation.git)
+cd algorithmic-equity-valuation
